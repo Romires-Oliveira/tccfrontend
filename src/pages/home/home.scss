@@ -2,13 +2,34 @@ page-home {
 
     h3 {
         text-align: center;
+        padding-top: 18px;
+        ;
     }
 
     img {
-        width: 200px;
+        width: 350px;
         align-self: center;
-        margin: auto;
+        margin-top: 60px;
+        margin-bottom: 100px;
         display: block;
         padding: 10px;
     }
+
+    .teste {
+        padding: 0px;
+        background-image: url('../assets/imgs/planofundo.jpg');
+        background-size: cover;
+        //background-position: center;
+    }
+
+    .overlay {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, black, transparent)
+    }
+    
+    .btm1 {
+        margin-bottom: 100px;
+    }
+
 }
