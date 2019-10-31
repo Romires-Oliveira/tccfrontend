@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ServProdPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ServProdService } from '../../services/domain/serv-prod.service';
+import { ServProdDTO } from '../../models/serv-prod.dto';
 
 @IonicPage()
 @Component({
@@ -15,11 +10,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ServProdPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public serprodService: ServProdService) {
   }
 
+  categoria(){
+    this.navCtrl.push('CategoriaPage');
+  }
+
+  items: ServProdDTO[];
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ServProdPage');
+    this.serprodService.findAll()
+    .subscribe(response => {
+      this.items = response;
+  },
+  error => {
+    console.log(error);
+  }); 
   }
 
 }

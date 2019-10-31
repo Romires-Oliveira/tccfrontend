@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { CadUsuarioComumService } from '../../services/domain/cad-usuario-comum.service';
 
 /**
  * Generated class for the CadUsuarioComumPage page.
@@ -15,15 +16,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CadUsuarioComumPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CadUsuarioComumPage');
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public cadUsuarioComumService: CadUsuarioComumService) {
   }
 
   servProd(){
     this.navCtrl.setRoot('ServProdPage');
+  }
+
+  ionViewDidLoad() {
+    this.cadUsuarioComumService.findAll()
+    .subscribe(response => {
+      console.log(response);
+  },
+  error => {
+    console.log(error);
+  }); 
   }
 
 }

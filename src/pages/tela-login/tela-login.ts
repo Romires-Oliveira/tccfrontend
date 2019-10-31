@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, MenuController} from 'ionic-angular';
+import { TelaLoginService } from '../../services/domain/tela-login.service';
 
 /**
  * Generated class for the TelaLoginPage page.
@@ -15,11 +16,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TelaLoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+     public menu: MenuController,
+     public telaloginService : TelaLoginService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TelaLoginPage');
-  }
+  ionViewWillEnter() {    
+    this.menu.swipeEnable(false);   
+} 
+
+ionViewDidLeave() {     
+ this.menu.swipeEnable(true);   
+}
+
+ionViewDidLoad() {
+  this.telaloginService.findAll()
+  .subscribe(response => {
+    console.log(response);
+},
+error => {
+  console.log(error);
+}); 
+}
 
 }

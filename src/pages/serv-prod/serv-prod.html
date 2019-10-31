@@ -16,6 +16,43 @@
 
 <ion-content padding>
 
-<p>Página de Listagem de Prestador de Serviços e Produtos</p>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      {{ item }}
+    </ion-item>
+  </ion-list>
+
+  <!--
+  <ion-list>
+    <button ion-item *ngFor="let item of items">
+      <ion-thumbnail item-start>
+        <img src="img/thumbnail-totoro.png">
+      </ion-thumbnail>
+      <h2> {{ item.descricao }} </h2>
+      <p>Hayao Miyazaki • 1988</p>
+    </button>
+  </ion-list>
+-->
+
+
+  <button ion-card *ngFor="let item of items">
+    <img class="imgcard" src="assets/imgs/img{{item.id}}.jpg"/>
+    <ion-card-content>
+      <ion-card-title>
+        <h1> {{ item.nomeServProd }} </h1>
+        </ion-card-title>
+        <!--
+      <p>
+        The most popular industrial group ever, and largely
+        responsible for bringing the music to a mass audience.
+      </p>
+    -->
+    </ion-card-content>
+  </button>
+
+<!--
+<button ion-button block outline round (click)="categoria()">Categorias</button>
+-->
 
 </ion-content>

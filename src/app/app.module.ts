@@ -7,6 +7,11 @@ import { MyApp } from './app.component';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { CategoriaService } from '../services/domain/categoria.service';
+import { CadUsuarioComumService } from '../services/domain/cad-usuario-comum.service';
+import { ServProdService } from '../services/domain/serv-prod.service';
+import { TelaLoginService } from '../services/domain/tela-login.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -16,6 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    CommonModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -24,7 +30,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CategoriaService,
+    CadUsuarioComumService,
+    ServProdService,
+    TelaLoginService
   ]
 })
 export class AppModule {}
