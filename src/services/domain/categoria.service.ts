@@ -11,6 +11,8 @@ export class CategoriaService {
 
     }
 
+
+
     findAll(): Observable<CategoriaDTO[]> {
         return this.http.get<CategoriaDTO[]>("http://localhost:8080/api/categoriasp");
     }

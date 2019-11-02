@@ -15,10 +15,6 @@ export class ServProdPage {
     public serprodService: ServProdService) {
   }
 
-  categoria(){
-    this.navCtrl.push('CategoriaPage');
-  }
-
   items: ServProdDTO[];
 
   ionViewDidLoad() {
@@ -29,6 +25,10 @@ export class ServProdPage {
   error => {
     console.log(error);
   }); 
+  }
+
+  dadosSP(){
+    this.navCtrl.push('DadosSpPage');
   }
 
 }

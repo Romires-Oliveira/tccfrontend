@@ -11,38 +11,40 @@
 </ion-header>
 
 <ion-content class="planofundo" padding>
-    <form>
+    <form [formGroup]="formGroup" (ngSubmit)="cadUser(); $event.preventDefault()">
         <ion-item>
           <ion-label floating>Nome Completo</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input formControlName="nomeCompleto" type="text"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label floating>Nome Usuário</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-      <ion-item>
-        <ion-label>Sexo:</ion-label>
-          <ion-select name="sexo" value="Sexo">
-            <ion-option>Masculino</ion-option>
-            <ion-option>Feminimo</ion-option>
+          <ion-label>Sexo:</ion-label>
+            <ion-select formControlName="sexo" value="sexo">
+              <ion-option>Masculino</ion-option>
+              <ion-option>Feminino</ion-option>
           </ion-select>
-    </ion-item>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Telefone</ion-label>
+            <ion-input formControlName="telefone" type="text"></ion-input>
+          </ion-item>
         <ion-item>
             <ion-label floating>Email</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input formControlName="email" type="text"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>Senha</ion-label>
-            <ion-input type="password"></ion-input>
+            <ion-input formControlName="senha" type="password"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>Confirmar Senha</ion-label>
-            <ion-input type="password"></ion-input>
+            <ion-input formControlName="confirmarSenha" type="password"></ion-input>
           </ion-item>
           <ion-item>
               <ion-label>Sou Prestador</ion-label>
-              <ion-checkbox color="dark" checked="false"></ion-checkbox>
-            </ion-item>
-        <button ion-button block (click)="servProd()">Salvar</button>
+              <ion-checkbox color="dark" checked="false" value="1"></ion-checkbox>
+          </ion-item>
+        <button ion-button block type="submit">Salvar</button>
+
+<!--<button ion-button block (click)="servProd()">Salvar</button>-->
       </form>
 </ion-content>

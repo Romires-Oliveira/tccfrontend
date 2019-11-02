@@ -1,4 +1,4 @@
-<!--
+  <!--
   Generated template for the TelaLoginPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
@@ -17,16 +17,20 @@
     <form>
       <ion-item>
         <ion-label floating>Email</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input [(ngModel)]="creds.email" name="email" type="text"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Senha</ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input [(ngModel)]="creds.senha" name="senha" type="password"></ion-input>
       </ion-item>
       <div><h6>Esqueceu a senha?</h6></div>
-      <button ion-button block>login</button>
+      <button ion-button block (click)="telascat()">login</button>
     </form>
+    <!--
     <p>----- OU CONECTE-SE COM -----</p>
     <button ion-button block>Facebook</button>
     <button ion-button block color="danger">Google</button>
+
+    -->
+
 </ion-content>

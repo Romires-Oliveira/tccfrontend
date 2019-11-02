@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, MenuController} from 'ionic-angular';
 import { TelaLoginService } from '../../services/domain/tela-login.service';
+import { CredenciaisDTO } from '../../models/credenciais.dto';
 
 /**
  * Generated class for the TelaLoginPage page.
@@ -15,6 +16,11 @@ import { TelaLoginService } from '../../services/domain/tela-login.service';
   templateUrl: 'tela-login.html',
 })
 export class TelaLoginPage {
+
+  creds : CredenciaisDTO = {
+    email: "",
+    senha: ""
+  };
 
   constructor(public navCtrl: NavController,
      public menu: MenuController,
@@ -37,6 +43,11 @@ ionViewDidLoad() {
 error => {
   console.log(error);
 }); 
+}
+
+telascat(){
+  console.log(this.creds);
+  this.navCtrl.setRoot('CategoriaPage');
 }
 
 }

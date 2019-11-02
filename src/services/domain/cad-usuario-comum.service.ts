@@ -15,4 +15,15 @@ export class CadUsuarioComumService {
     findAll(): Observable<CadUsuarioComumDTO[]> {
         return this.http.get<CadUsuarioComumDTO[]>("http://localhost:8080/api/usuariocomum");
     }
+
+    insert(obj : CadUsuarioComumDTO){
+        return this.http.post(
+          'http://localhost:8080/api/usuariocomum/salvar',
+          obj,
+          {
+              observe: 'response',
+              responseType: 'text'
+          }
+        );
+    }
 }
